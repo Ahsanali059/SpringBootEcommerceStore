@@ -1,0 +1,23 @@
+steps :
+
+1-Create One Controller
+2-Index.html file Link(Click me)
+3-Create Views Folder in WEB-INF Folder and file hi.jsp
+4-provide mapping in web.xml file
+<servlet-mapping>
+	  <servlet-name>myds</servlet-name>
+	  <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+	  <servlet-name>myds</servlet-name>
+	  <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  </servlet>
+  
+5-create Spring Cofigration file with servlet class name like 
+myds-servlet.xml 
+     ->provide mapping for handlerMapping 
+	 ->Mapping for provided url and and servlet 
+	 ->provide Mapping for View Resolver 
+	 
+ 

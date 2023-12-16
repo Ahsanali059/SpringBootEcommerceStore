@@ -1,0 +1,47 @@
+=> Spring Form Tag Library :-
+	-> Spring form tag library is the set of data-binding tags for handling the form elements when using JSP and Spring WEB MVC.
+	-> It is used for creating HTML components, error messages, themes and internationalized messages
+	-> It is built-in library which is bundled in "spring-webmvc.jar" and the descriptor is known as "spring-form.tld".
+	-> To use these tags, you have to include the tablib i.e. 
+		<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+	-> List of tags available are :-
+		1. form:form
+		2. form:input
+		3. form:radiobutton
+		4. form:checkbox
+		5. form:password
+		6. form:select
+		7. form:textarea
+		8. form:hidden
+		   etc
+		
+=================================================================================================
+
+=> View Resolvers commonly used classes are :-
+	1. InternalResourseViewResolver (default)
+	2. UrlBasedViewResolver
+	3. XmlViewResolver
+	4. ResourceBundleViewResolver
+	
+---------------------------------------------
+
+=> UrlBasedViewResolver :-
+	-> It is an implementation of ViewResolver interface
+	-> It directly resolves the view name to the Url
+	-> It requires 3 properties :-
+		1. prefix
+		2. suffix
+		3. viewClass
+	-> NOTE : If we want to use JstlView class then we have to add 2 jar files i.e.
+		1. taglibs-standard-impl-1.2.5
+		2. taglibs-standard-spec-1.2.5
+		
+
+=> XmlViewResolver :-
+	-> It will resolve the view which is defined in xml file
+	
+	
+=> ResourceBundleViewResolver :-
+	-> It will resolve the view which is defined in properties file
+	
+=================================================================================================

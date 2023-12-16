@@ -1,0 +1,32 @@
+=> What is difference between @NotNull, @NotEmpty and @NotBlank :-
+	= @NotNull :- Objects, Arrays, Collections, Map, CharSequence should not be null but can be empty
+	= @NotEmpty :- Objects, Arrays, Collections, Map, CharSequence should not be null and size should be greater then 0
+	= @NotBlank :- The string should not be null and the trimmed length should be greater then 0
+	
+	
+=> @Min and @Max :-
+	= They are used for integers
+	
+=> @Past and @Future :-
+	= They are used for Date (java.util)
+	
+=> What is difference between @Size and @Length :-
+	= @Size is a Bean Validation annotation that validates that the associated String has a value whose length is bounded by the minimum and maximum values.
+	= @Length is a Hibernate-specific annotation and has the same meaning as @Size
+	
+=> @Range :-
+	= It can be used for integer values in which we specify min and max values
+	
+===================================================================================================
+
+=> Spring Interceptors :-
+	-> If we want pre-processing and post-processing service for any controller class then we have to use spring interceptors
+	-> For example, we use spring interceptors in logging services, authentication services, validation services, encryption/decryption services etc
+	
+	-> To create interceptors spring has provided one interface i.e. "HandlerInterceptor"
+	-> HandlerInterceptor contains 3 methods :-
+		1. preHandle()
+		2. postHandle()
+		3. afterCompletion()
+		
+==================================================================================================

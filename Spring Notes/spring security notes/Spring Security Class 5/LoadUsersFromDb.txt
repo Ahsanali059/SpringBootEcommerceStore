@@ -1,0 +1,68 @@
+There is dafault Schema in spring security 
+->Spring people say that you can follow over approach 
+you don't need to provide any of the code Every thing implemented 
+in internally simple follow over approach 
+ 
+ Create two table 
+         ->Users
+		      Columns 
+			  (username,password,enabled boolean not null)
+			  the third column means whether the user is enabled
+			  or not(i can disable user profile for fiew days)
+Important Note:
+There are two kind of delete subDelete and hardDelete
+         HardDelete means completly remove the data from database 
+         subDelete means disable from few  days(not delete from database)
+		 
+create table users(
+	username varchar_ignorecase(50) not null primary key,
+	password varchar_ignorecase(50) not null,
+	enabled boolean not null
+);
+
+create table authorities (
+	username varchar_ignorecase(50) not null,
+	authority varchar_ignorecase(50) not null,
+	constraint fk_authorities_users foreign key(username) references users(username)
+);
+create unique index ix_auth_username on authorities (username,authority);
+
+//spring documentation:
+https://docs.spring.io/spring-security/reference/servlet/appendix/database-schema.html
+
+not change anything spring says  		 
+
+->In MySecurityConfig file
+@Autowired
+	private DataSource dataSource;
+	
+	
+	@SuppressWarnings("deprecation")
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		
+		//load users from DB
+		
+		auth.jdbcAuthentication().dataSource(dataSource).passwordEncoder(NoOpPasswordEncoder.getInstance());
+		
+}
+
+myAppConfig.java
+
+@Bean
+	public DataSource datasource()
+	{
+		DriverManagerDataSource driverManagerDataSource=new DriverManagerDataSource();
+		
+		driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/mydb");
+		driverManagerDataSource.setUsername("admin");
+		driverManagerDataSource.setPassword("admin123");
+		driverManagerDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+		
+		
+		
+		
+		return driverManagerDataSource;
+}
+
+Next class we will learn sign up form 

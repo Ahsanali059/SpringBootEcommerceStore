@@ -1,0 +1,48 @@
+what is DevOps
+
+DevOps Mixture of two words dev and ops dev means development 
+team and dev means operation team development team develop app and 
+operation team duty to deploy app on server and check this 
+
+
+what is Docker?
+
+Docker is a Company 
+Contanier is like a Virtual Machine 
+Docker Engine is tool this is used to create contanier 
+
+why we use Docker Engine ?
+
+First learn what is Virtulization ?
+
+In Virtulization we create Saparate virtual Machine and 
+install over os and software and dependencies to run over application 
+and then share with operation or testing team 
+Virtulization Connected with Hyperviser 
+Hyperviser Creates the vm (virtual machines)
+Every vm have a own os and software and reserved a sepecific RAM
+Every vm reserve a space like 8gb 2gb use or never use 
+
+Docker is a advance Virtulization tool 
+Docker working is to create Continarization 
+
+Layer 1:           Hardware
+Layer 2:              OS
+Layer 3:          Docker Engine--->same like Hyperviser
+Layer 4:          many contaniers -->same like Virtual Machine 
+
+Contanier does not have own os. 
+
+It use Hardware Operating system.
+It use space and operating system from Hardware
+It is very Lightweight because no os present here But software also there 
+Contanier Contains only software 
+Container fetch all dependency from Docker hub 
+Docker hub contains all of dependencies
+Contanier khud say dependencies Docker hub say fetch karta hay
+
+Note:If we create our own image and deploy into docker hub then other person need this 
+image then this person pull this image in own container and use this thats8  
+
+
+

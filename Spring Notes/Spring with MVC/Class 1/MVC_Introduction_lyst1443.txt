@@ -1,0 +1,48 @@
+=> MVC :-
+	-> Full form of MVC is Model View Controller
+	-> MVC is design pattern which is used to seperate the application layers i.e. we are able to seperate the UI/presentation layer, logical layer and controller layer
+	
+	-> Architecture of MVC :-
+	
+	-> Controller :-
+		= Controllers are used to handle the client request
+		= Controllers acts/works for both View and Model layer
+		= "Servlets" acts as controllers
+		
+	-> Model :-
+		= Models are used to provide the data-related logic or business logic
+		= "POJO (Plain Old Java Object)" class acts as models
+		
+	-> View :-
+		= View represent the UI/presentation layer which is transfered to the client as a response
+		= "HTML, JSP etc" acts as view
+		
+		= There are 2 types of views :-
+			1. static view (html)
+			2. dynamic view (JSP)
+			
+================================================================================================
+
+=> Servlet :-
+	= Servlet is a "server side programming technology" which is used to handle the request from the clients
+	= Servlets are "Java Program/Page" which are executed on the server
+	= Its extention is ".java"
+
+
+=> JSP :-
+	= JSP is a "server side programming technology" which is used to create dynamic web pages
+	= JSP contains HTML and JSP tags
+	= Its extention is ".jsp"
+	
+=> MVC Architecture in Advance Java (JDBC, JSP & Servlet) :-
+	
+	
+=================================================================================================
+
+=> Terms you should know :-
+	1. HTML and its tags
+	2. HTTP Protocol
+	3. HTTP methods
+	4. Difference between GET and POST
+	
+=================================================================================================

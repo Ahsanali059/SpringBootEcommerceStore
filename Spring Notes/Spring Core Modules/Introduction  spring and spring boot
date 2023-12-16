@@ -1,0 +1,48 @@
+what is spring
+   ->spring in widely adopted open source framework for building enterprice application 
+   ->The spring boot feature and spring framework feature offers a robust,lightwight infrastructure for java application 
+   ->It simplifies enterprice java development by providing a comprehensive programming and configration model for web and non-web application part 
+   ->spring framewor provides many API'S to boost developer productivity including 
+           .transection managament & integration 
+           .data access and security 
+           .server side technology abstraction 
+   ->Spring addresses the current needs of enterprise application development by introducing a paradigm for building application with POJO(Plain Old Java Object) so that business object are not tied to any specific framework or runtime environment.This way,it is easy to test,reuse and maintain code agilly.
+
+ -------------------------------------------------------------------------
+ What are the main feature of Spring framework
+    ->The most fundamental aspect of spring and spring contanier is the dependency Injection(DI) or Inversion of Control(IoC),the cornerstone of every spring module 
+    ->we can Create loosly coupled application that can be easily tested and maintained using these design patterns.the spring framework also includes several out of the box modules,namely 
+           =>spring MVC
+C          =>spring ORM 
+           =>spring Test
+           =>spring AOP(Acpect Oriented programming)
+           =>spring web flow 
+           =>spring JDBC
+Note:Thses modules makes web applications more functional and reduce development time 
+
+--------------------------------------------------------------------------
+Spring Framework Use Case:
+          =>Developing server less application 
+          =>Securing the server-side of your application 
+          =>Building scalable microservices
+          =>Asynchronous application development 
+          =>Automatically task by creating batches 
+--------------------------------------------------------------------------
+Advantages of Spring 
+    ->The spring module is quite light considering it is based on the POJO formula
+    ->It support loose Coupling and easy testing.
+    ->The spring framewor support desclarative programming,XML and annotation Configration 
+    ->spring Offers middleware services
+--------------------------------------------------------------------------
+why we Need of spring boot:
+    =>Spring Boot was introduced to solve the complexity of creating a Spring-based application. It combines the advantages of Spring's dependency injection and strong configuration with a convention-over-configuration-based setup
+
+    =>Spring Boot is an extension of the spring framework,eliminating much of the boilerpolat code and configration that we need in spring framework 
+
+    ->It provide preconfigured platform for building Spring-powered applications with minimal XML and annotation based configration.
+
+    ->Because Spring boot is build on the top of Spring,it has all of Spring's features and benifits.Spring Boot intends to minimize code length and make it as sample as possible for developers to build applications.This increases of Spring boot developer job apportunities.
+                 
+
+
+

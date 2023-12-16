@@ -1,0 +1,34 @@
+=> SimpleUrlHandlerMapping :-
+	-> This class is used to map the URL with their respective controllers
+	-> The convention is to take the URL and its respective controller id/name, then it will goes to the controller directly
+	-> We can this class by 2 ways :-
+		1. By prop key
+		2. By value
+		
+		
+=> ControllerClassNameHandlerMapping :-
+	-> This class is used to generate the URL path mapping from the controller class name
+	-> The convention is to take the short name of the controller class (short name will be taken by removing the 'Controller' suffix if it exists and return the lower-case text) and map it with URL leading /
+	-> For example :-
+		HelloController -> /hello
+		HiController -> /hi
+	-> It is depricated in latest versions of spring
+	
+=================================================================================================
+
+=> AbstractController :-
+	-> It is the parent class of all the controllers in spring
+	-> It is implemented on the basis of "Template Method" design pattern
+	-> It provides some extra features like caching support, enables the filtering of HttpMethods, controls wether it will work with or without HttpSession etc
+	-> There are 3 types of AbstractController :-
+		1. ParameterizableViewController
+		2. BaseCommandController
+		3. MultiActionController
+		
+		
+=> ParameterizableViewController :-
+	-> This class is used to display web pages without controller i.e. without processing the request
+	-> In this case, it is not required to provide any user defined controller class. We can configure the page directly. It will take "viewName" property with its corresponding value i.e. view page name, and open the view JSP page
+	-> It is mostly used for hyper links
+	
+=================================================================================================

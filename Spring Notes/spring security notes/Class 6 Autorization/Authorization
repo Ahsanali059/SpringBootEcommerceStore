@@ -1,0 +1,32 @@
+
+Authorization in spring security
+
+if i want to hide to specific URI we use autorization 
+
+Example:
+
+    http.
+        .authorizedRequest()
+        .antMatchers("/coders").hasAutority("Coder");
+        .antMatchers("/trainer").hasAutority("Trainer");
+        -------------------------------------------------
+
+If agar is ka pass authoritize hoi wo page return kar day ga agar ni tu wo error day ga forbiddan request 
+
+How to set Custome error message Page
+
+add in this java code 
+
+.and().exceptionHandling().accessDeniedPage("/accessDenied");
+
+->Create mapping for accessDenied URL in Controller
+
+
+How to Check how or corrently Login..
+
+There are Two Interface  
+           ->Autoritization()------> if i want to access to authotize 
+           ->Principles-----------> if i want to print username
+
+
+

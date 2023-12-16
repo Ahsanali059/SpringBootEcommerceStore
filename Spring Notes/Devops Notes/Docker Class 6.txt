@@ -1,0 +1,88 @@
+What is Docker Volumn and how to share it?
+
+Create only container not start 
+         
+	    docker create -it --name my-container ubuntu:20.04
+
+                      START 
+         
+		   docker start my-container
+	
+
+->Volumn is normal directory inside over container
+->Us directory ko hum declare kar dita hay ka ya column ki tarha kam kara ga 
+->Volumn ek ashi storage hoti hay jis ko hum kisi doshra ka sath b share kar sakhta hay.
+ 
+
+->Volume can be shareable 
+
+->First we declare this directory as a column in Docker file then share column 
+->agar nahut sara containers apas may Volumn ho share kar raha hay tu jo b container 
+volumn ka andar khuch b add kara ga wo sub ko nazr ay ga 
+
+->If we delete the container Volumn cannot delete automatically we can use volumn data 
+if we want to delete we need to delete manully 
+
+->we can also share column host to container & container to container
+->Volumn will be Created in One Container 
+->we can declare a directory as a volumn only while creating a container
+->You cannot Create Volumn from existing Container
+->We can share one volumn across any number of containers 
+->Volumn will not be included when you Update an image 
+
+->we can Mapped Volumn in two ways ....
+1)-Container   ----->Container 
+2)-Host        ----->Container
+
+Benifits of Volumns 
+->Decoupling Container from storage 
+->Share volumn amoung different Containers
+->on deleting container volumn does not delete 
+
+Practical:
+
+Creating volumn from docker file 
+1-Create a docker file and write  
+   FROM ubuntu 
+   VOLUME["/myVolumn1"]        --------> / means root directory 
+2-Then create docker image from this file 
+   docker build -t myimage . 
+3-Now create a Container from this image & run 
+   docker run -it --name container1 myimage /bin/bash 
+ 
+   ls 
+4-now share volume with another container 
+ docker run -it --name container2 --privileged=true --volumns-from container1 
+ ubuntu /bin/bash 
+5-now after creating container2 myVolumn1 is visible whatEver you do in One Volumn,Can see 
+from other Volume 
+
+    -->touch /myVolumn1/simpleFile 
+    -->docker start container1
+    -->docker attach container1 
+ 
+    im in Container1 
+    ls /myVolumn1
+    you see sample file here 	
+	
+
+Now try to create Volumn by using Command 
+   
+   ->docker run -it --name container3 -v /volume2 ubuntu bin/bash  (-v means declare directory as 
+    as volume)
+
+Do ls ----------------->cd /volume2
+Now create one file Cont3File and exit 
+
+Now create one more container,and share volume  
+    ->docker run -it --name container4 --privileged = true --volumes-from container3 ubuntu 
+      /bin/bash	
+	  
+Note:Now you are inside container,do ls ,you can see Volumn2 
+Now Create One file inside this volumn and then check in Container3 you can see that file 
+
+-----------------------------------------------------------------------------------------------
+Volumns (Host-Container)
+ 
+ 
+ 

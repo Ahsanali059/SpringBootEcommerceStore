@@ -1,0 +1,102 @@
+=> Spring WEB-MVC :-
+	-> Spring WEB-MVC is the java framework which follows the MVC design pattern
+	-> It is used to develop flexible and loosly coupled web applications
+	
+	-> String WEB-MVC architecture :-
+		
+	-> Components in Spring WEB-MVC architecture :-
+		1. web.xml
+		2. Front Controller
+		3. Spring Configuration File
+		4. Handler Mapping
+		5. Controller
+		6. Command Classes
+		7. View Resolvers
+		8. View
+		
+================================================================================================
+
+=> web.xml :-
+	-> web.xml is the "deployment descriptor file" which is the part of every JavaEE application
+	-> Some of the responsibilities of web.xml file are :-
+		= welcome file configuration
+		= servlets configurations
+		= session timeout configuration
+		= filters configurations
+		= listeners configurations
+		= context parameters configurations
+		= tag libraries configuration
+		= error page configurations
+		
+	-> In Spring WEB-MVC, its main task is to configure the front-controller i.e. DispatcherServlet
+	-> We create web.xml file in WEB-INF folder
+	
+	
+=> Front Controller :-
+	-> Front Controller is the controller that handles all the client requests and deligates the request to the other components
+	-> In Spring WEB-MVC, "DispatcherServlet" acts as front-controller
+	
+	-> "DispatcherServlet" is the single entry point for client request to spring web application
+	-> Flow of "DispatcherServlet" in Spring WEB-MVC
+	-> "DispatcherServlet" is the class which is present in "org.springframework.web.servlet" package
+	-> Hierarchy of "DispatcherServlet" class :-
+	
+	
+=> Spring Configuration File :-
+	-> Spring Configuration File is an XML file which is used to configure :-
+		= bean classes
+		= handler mapping classes
+		= controller classes
+		= view resolver classes
+	-> The default name of Spring Configuration File is "[servlet-name]-servlet.xml" and its default location is WEB-INF folder
+	
+	
+=> Handler Mapping :-
+	-> Handler Mapping is used to map the requests to proper controller (or handler) and returns that controller name to front controller (DispatcherServlet)
+	-> For this, Spring WEB-MVC has provided "HandlerMapping" interface and its implemented classes which are as follows :-
+		1. BeanNameUrlHandlerMapping
+		2. DefaultAnnotationHandlerMapping
+		3. SimpleUrlHandlerMapping
+		4. ControllerClassNameHandlerMapping
+		   etc
+	-> These handler mapping classes are present in "org.springframework.web.servlet.handler" package
+	
+	
+=> Controller :-
+	-> Controller is the java class which is used to process the request
+	-> Its main task is to execute the business logic or to interact with service layer
+	-> For controller, Spring WEB-MVC has provided "Controller" interface and its implemented classes which are as follows :-
+		1. AbstractController
+		2. BaseCommandController
+		3. MultiActionController
+		4. SimpleFormController
+		5. AbstractFormController
+		   etc
+	-> These controller classes are present in "org.springframework.web.servlet.mvc"
+	
+	
+=> Command Classes :-
+	-> Command Classes are normal java bean class or POJO class
+	-> It is used to store the form data which is submitted by the client and then this data is available for business logic
+	
+	
+=> View Resolvers :-
+	-> View Resolvers are used to resolve the views and return the correct view to the front controller (DispatcherServlet)
+	-> For this Spring WEB-MVC has provided "ViewResolver" interface and its implemented classes which are as follows :-
+		1. InternalResourseViewResolver
+		2. ResourceBundleViewResolver
+		3. XmlViewResolver
+		4. BeanNameViewResolver
+		5. UrlBasedViewResolver
+		6. FreeMarkerViewResolver
+		7. VelocityViewResolver
+		   etc
+	-> These are classes are present in "org.springframework.web.servlet.view" package
+		   
+		   
+=> View :-
+	-> It is the presentation or UI which is send to the client as a response
+	-> Some views are HTML, JSP, freemaker, velocity etc
+	
+	
+=================================================================================================

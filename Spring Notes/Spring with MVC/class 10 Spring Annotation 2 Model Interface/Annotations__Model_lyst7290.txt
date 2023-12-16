@@ -1,0 +1,118 @@
+=> Annotations :-
+------------------------
+
+=> @Controller :-
+	-> It indicates that a particular class serves the role of controller
+	-> It can be applied to the classes
+	-> For example :-
+		@Controller
+		class HelloController
+		{
+			---------
+		}
+		
+		
+=> @RequestMapping :-
+	-> It is used to map the requests onto specific handler methods or handler classes
+	-> It can applied to the methods and controller classes also
+	-> For example :-
+		----------------------
+		@Controller
+		public class HelloController
+		{
+			//@RequestMapping("/aaa")
+			
+			//@RequestMapping(value="/aaa")
+			
+			//@RequestMapping(value={"/aaa","/bbb","/ccc"})
+			
+			//@RequestMapping(value="/aaa", method=RequestMethod.GET)
+			
+			@RequestMapping(value="/aaa", method= {RequestMethod.GET, RequestMethod.POST})
+			public String m1()
+			{
+				----body----
+				return "hello";
+			}
+		}
+		------------------------
+		<form action="aaa/bbb" method="post">
+			<input type="submit" value="Click Me" />
+		</form>
+		
+		@Controller
+		@RequestMapping("/aaa")
+		public class HelloController
+		{
+			@RequestMapping("/bbb")
+			public String m1()
+			{
+				----body-----
+				return "hello";
+			}
+		}
+		
+		
+=> @RequestParam :-
+	-> It is used to fetch the values of the parameter in the form request object
+	-> It is used in mthod parameter
+	-> For example :-
+		----------------------------
+		@Controller
+		public class HelloController
+		{
+			@RequestMapping("/aaa")
+			public String m1(@RequestParam("name1") String myname)
+			{
+				//String myname = request.getParameter("name1");
+				System.out.println("hello controller....");
+				return "hello";
+			}
+		}
+		----------------------------
+		@Controller
+		public class HelloController
+		{
+			@RequestMapping("/aaa")
+			public String m1(
+					@RequestParam("name1") String myname,
+					@RequestParam("email1") String myemail,
+					@RequestParam("pass1") String mypass
+				)
+			{
+				System.out.println("hello : "+myname+", your email id is "+myemail);
+				return "hello";
+			}
+		}
+		----------------------------
+		@Controller
+		public class HelloController
+		{
+			@RequestMapping("/aaa")
+			public String m1(@RequestParam(name="name1") String myname)
+			{
+				System.out.println("hello controller....");
+				return "hello";
+			}
+		}
+		----------------------------
+		@Controller
+		public class HelloController
+		{
+			@RequestMapping("/aaa")
+			public String m1(@RequestParam(name="city1", required = false, defaultValue = "Delhi") String mycity)
+			{
+				System.out.println("hello controller....");
+				return "hello";
+			}
+		}
+		----------------------------
+		
+==================================================================================================
+
+=> Model :-
+	-> In MVC framework, M stands for Model which is used to store and process the data
+	-> For this, spring framework has provided one interface i.e. Model which is present in "org.springframework.ui" package
+	-> The data stored in the model can be anything i.e. strings, objects, data from database etc
+	
+=================================================================================================

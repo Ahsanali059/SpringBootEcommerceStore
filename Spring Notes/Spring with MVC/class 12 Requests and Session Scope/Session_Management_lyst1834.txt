@@ -1,0 +1,17 @@
+=> Session Management :-
+	-> It is the technique by which we can manage the user requests i.e. if the request is coming from the same user or different user
+	-> NOTE : HTTP is stateless protocol and thus server is not able to check wether the request is coming from same user or different user
+	-> For session management we have many techniques in spring MVC i.e. HttpSession, annotations, spring security etc
+	
+	
+=> HttpSession :-
+	-> HttpSession is an interface which is used for session management
+	-> Methods of HttpSession interface :-
+		= setAttribute(-,-)
+		= getAttribute(-)
+		= getAttributeNames()
+		= removeAttribute(-)
+	-> To create session, we have to use following method :-
+		= getSession() [it is present in HttpServletRequest interface]
+	-> To destroy the session, we have to use following method :-
+		= invalidate()

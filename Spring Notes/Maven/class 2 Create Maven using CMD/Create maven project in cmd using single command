@@ -1,0 +1,4 @@
+Create maven project in cmd using single command
+    mvn archetype:generate -DgroupId=in.smartFinance -DartifactId=FirstProject -Dversion=1.0 -Dpackage=in.smartFinance.main -DarchetypeArtifactId=maven-archetype-webapp
+Create maven project as  jar war and ear 
+   mvn package

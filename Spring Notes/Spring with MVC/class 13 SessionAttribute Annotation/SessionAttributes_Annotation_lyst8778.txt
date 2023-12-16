@@ -1,0 +1,19 @@
+=> @SessionAttributes
+	-> It is an annotation provided by spring to store the data in session area
+	-> We can set any type of data in SessionAttributes
+	-> If we want to delete session object :-
+		= We have to create SessionStatus reference
+		= Then we have to call sessionStatus.setComplete() method
+	-> It is declared at class level
+	-> For example :-
+		@Controller
+		@SessionAttributes("------")
+		public class FirstController
+		{
+			------------
+		}
+		
+	-> NOTE :
+		= Be careful while using @SessionAttributes because it may be possible that first developer can delete the session object which is used by another developer
+		= For permanent session attributes, e.g. a user authentication object, use the traditional session.setAttribute method instead
+	

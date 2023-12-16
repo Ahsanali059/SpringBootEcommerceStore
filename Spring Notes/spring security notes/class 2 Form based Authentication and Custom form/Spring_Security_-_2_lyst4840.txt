@@ -1,0 +1,13 @@
+=> Difference between "HTTP Basic Authentication" and "HTTP Digest Authentication"
+	-> Basic :-
+		= Basic Authentication uses base64 encoding (not encryption) for genrating our cryptographic string which contains the information of username and password
+		= It is easier to implement
+	-> Digest :-
+		= Digest Authentication uses the hashing (digest means cut into small parts) mechanism for genrating our cryptographic string which contains the information of username and password
+		= It is complex to implement
+		
+=> CSRF :-
+	= Full form of CSRF is "Cross-Site Request Forgery" (sometimes it is also known as XSRF)
+	= It is an attack that can trick an end-user using a web-application to unknowningly execure actions that can compromise security
+	= To overcome this attack, we should include an input hidden to send the CSRF token in the POST method when the user submits the form :-
+		

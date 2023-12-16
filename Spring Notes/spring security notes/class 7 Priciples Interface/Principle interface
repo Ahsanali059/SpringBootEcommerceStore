@@ -1,0 +1,109 @@
+What is Principle in spring Security:
+
+In Spring Security, a Principal represents the currently authenticated user.
+It encapsulates the details of the user, such as the username and authorities (roles) and is used to perform access control decisions within the application.
+The Principal interface is part of the Java Security API and is widely used in security-related scenarios.
+
+Here's how it typically works in the context of Spring Security
+
+1:Authentication:
+
+When a user logs in, Spring Security authenticates the user and creates an Authentication object.The Authentication object contains information about the principal (user) and, optionally, the user's credentials and authorities.
+
+2-Principal
+The Principal is an interface in Java that represents the identity of a user
+In the context of Spring Security, the principal typically refers to a user who has been authenticated.
+The Principal interface has methods to retrieve the name (username) of the authenticated user
+
+3-SpringContext:
+The SecurityContext is a central component in Spring Security that holds the Authentication information including the Principal.
+. It provides a way to access the current user's information from anywhere in the application.
+
+4-Access Control:
+Throughout the application, you can perform access control based on the Principal and the associated authorities 
+
+For example, you might use annotations like @PreAuthorize or @Secured on methods to restrict access to certain roles or users.
+
+Why we use the @PreAuthorize and @Secured Annotation 
+
+In Spring Security, annotations like @PreAuthorize and @Secured are used to enforce access control at the method level.
+
+They provide a declarative way to specify who is allowed to access a particular method or resource based on the user's roles,authorities, or specific conditions. Let's explore each annotation
+
+@PreAuthorize
+The @PreAuthorize annotation is part of the Spring Security expression language support
+
+ It allows you to define access control expressions using SpEL (Spring Expression Language).
+ You can use @PreAuthorize to specify a condition that must be satisfied for a method to be executed
+ If the condition evaluates to true, the method is allowed to proceed; otherwise, access is denied.
+
+ Practical 
+
+ public class myService
+ {
+
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public void adminOnlyMethod()
+    {
+       
+
+    }
+
+ }
+
+
+In this example, the adminOnlyMethod can only be invoked by users who have the 'ROLE_ADMIN' authority.
+
+@Secured
+
+The @Secured annotation is an older annotation that predates @PreAuthorize
+It's part of the standard Spring Security annotations and allows you to specify a list of roles or authorities required to access a method.
+
+Practical 
+
+
+public class MyService {
+
+    @Secured("ROLE_USER")
+    public void userOnlyMethod() {
+        // Method logic accessible only to users with the 'ROLE_USER' role
+    }
+}
+
+
+//Note:These Annotations is not a part of spring security 
+@Query:
+
+Used to define custom queries in Spring Data repositories.
+
+
+@SpringBootApplication
+
+Combines @Configuration, @EnableAutoConfiguration, and @ComponentScan. It is used to mark the main class of a Spring Boot application.
+
+@EnableAutoConfiguration:
+
+Enables Spring Boot's automatic configuration based on the classpath settings.
+
+@SpringBootTest
+The @SpringBootTest annotation is used in Spring Boot for testing
+
+Practical
+@SpringBootTest
+public class MySpringBootTest {
+
+    @Autowired
+    private MyService myService;
+
+    @Test
+    public void testMyService() {
+        assertNotNull(myService);
+        // Add your test logic here
+    }
+}
+
+@SpringBootTest: This annotation tells Spring Boot to set up a test environment and load the application context. It's like saying, "Hey, this is a Spring Boot test!"
+
+
+
+

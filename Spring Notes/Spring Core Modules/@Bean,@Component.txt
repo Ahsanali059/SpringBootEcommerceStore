@@ -1,0 +1,146 @@
+  How to create a Bean 
+
+->Using xml(bean.xml)
+
+	class College 
+	{
+
+	}
+
+
+
+    <bean id="CollegeBean" class="com.example.MyColleges.College">
+    
+
+    </bean>
+
+working:when we define this beans College Object is created and 
+register the perticular object in IOC Container/Application Context when we need to use this we simple use 
+           getBean("BeanId"); 
+		   
+Note:<bean id="CollegeBean" class="com.example.MyColleges.College">
+    
+
+    </bean>
+
+this same thing we can do this by using java annotation 
+
+@Component
+class College
+{
+
+}	
+
+while we are creating bean using java we dont provide id bydefault
+id is e.g ClassName is College Id is college
+          ClassName is Student Id is student 
+we can provide by manually 
+
+@Component("studentBean") 
+class Student
+{
+
+
+}
+
+beans.xml 
+
+<context:component-scan base-package = "" ></context:component-scan>		  
+
+Note:Know i depend on ApplicationContext.xml/beans.xml file
+to remove the dependency we need to create java Configration Class 
+to implement this we use @Configration annotation 
+
+
+@Configration     //this tell spring this is configration class and all of the other staff spring handle itselft
+class studentConfig 
+{
+    
+}
+
+we need to define component scanning 
+@Configration
+@ComponentScan(basePackages = "com.example")
+class studentConfig 
+{
+
+}
+
+mainClass
+
+public static void main(String args[])
+{
+    ApplicationContext context = new AnnotationConfigApplicationContext(studentConfig.class);
+	
+	context.getBean("studentBean :"+student.class);
+	
+	
+    	
+
+}
+
+Important Point:Know we want dont use @Component annotation for 
+creating a beans use something else 
+
+we are using two annotation
+                 @Configration 
+				 @Bean 
+
+@Configration
+class student
+{
+     @Bean
+     public void StartHomeWork()
+	 {
+	    System.out.println("I am starting my home work");
+	 }
+
+} 
+//in this part method name is Bean name
+//we can change bean name 
+   @Bean(name = "stdBean")
+//we can provide multiple names 
+   @Bean(name = {"stdBean1","bean2"})     
+   
+   
+@Value Annotation:
+        This is used to inject the value like 
+		                          @Value("Ahsan ali")
+		                          private String stdName;
+		Note:But I want get Name from properties file 
+
+        properties file 
+                student.Name = "ahsan ali"
+
+        in java file 
+                @Value("${student.Name}")	
+
+Important Note: If we are using properties file in spring we need to configure this properties file 
+in spring boot we dont need this 
+
+@PropertySource("classpath:college-info.properties")
+
+@Primary Annotation:
+
+if i have Teacher interface and Multiple Implementation have a this teacher interface like 
+                 Math teacher 
+                 ProgrammingTeacher
+spring confuse with teacher we will use we use @primary annotation which teacher is more impoartant 
+
+
+@Primary
+public class ProgrammingTeacher	implements Teacher 
+{
+
+
+}		jis class ko execute/primary banana hay us ka sath @primary ko use karta hay 
+
+Lakin agar may Interface Teacher ka sath use karna cachta ho ka kon say teacher execute ho ga 
+us  ka lia may @Qalifier ka use karta ho 
+            
+		  @Qalifier("BeanName")	//e.g @Qalifier("programmingTeacher")
+          private Teacher teacher;	
+
+@Required 
+       koi property asi hay jo important hay us ka ilawa class execute na ho ty us jo @required 
+bana do jab null ay ga exception a jay gi	   

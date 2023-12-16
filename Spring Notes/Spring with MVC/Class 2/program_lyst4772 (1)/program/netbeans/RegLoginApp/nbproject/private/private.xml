@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Deepesh%20Panwar/Documents/NetBeansProjects/RegLoginApp/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/Deepesh%20Panwar/Documents/NetBeansProjects/RegLoginApp/src/java/in/sp/dbcon/DbConnection.java</file>
+            <file>file:/C:/Users/Deepesh%20Panwar/Documents/NetBeansProjects/RegLoginApp/src/java/in/sp/dao/RegisterDao.java</file>
+            <file>file:/C:/Users/Deepesh%20Panwar/Documents/NetBeansProjects/RegLoginApp/web/index.html</file>
+            <file>file:/C:/Users/Deepesh%20Panwar/Documents/NetBeansProjects/RegLoginApp/src/java/in/sp/services/RegisterService.java</file>
+            <file>file:/C:/Users/Deepesh%20Panwar/Documents/NetBeansProjects/RegLoginApp/web/register.jsp</file>
+            <file>file:/C:/Users/Deepesh%20Panwar/Documents/NetBeansProjects/RegLoginApp/web/success.html</file>
+            <file>file:/C:/Users/Deepesh%20Panwar/Documents/NetBeansProjects/RegLoginApp/src/java/in/sp/controllers/RegisterController.java</file>
+            <file>file:/C:/Users/Deepesh%20Panwar/Documents/NetBeansProjects/RegLoginApp/web/fail.html</file>
+        </group>
+    </open-files>
+</project-private>

@@ -1,0 +1,22 @@
+UserDetailManager 
+
+->It is a Interface in spring Security 
+Purpose: 
+       The Primary purpose of 'UserDetailsManager' is to manage user details which includes creating,updating and deleting user accounts.
+It defines methods to creating a new User updating a existing user's details and deleting a user 
+
+2-UserDetailsRepository:
+Inheritance:
+          The `UserDetailsManager` extends the UserDetailsRepository interface The 'UserDetailsRepository' interface in turn extends UserDetailsService that is use to load user details from datasource during any authentication process.  
+
+JDBCUserDetailsManager:
+          ->The JdbcUserDetailsManager is a class provided by the Spring Security framework that implements the UserDetailsManager interface for managing user details stored in a relational database using JDBC (Java Database Connectivity)
+          
+          ->It is a part of spring security Core module and offers a convenient way to perform common user management operations,such as creating,updating,deleting user accounts.
+
+      (1)-UserDetailsManager Interface Implementation:
+      
+      JdbcUserDetailsManager implements the UserDetailsManager interface, which defines methods for managing user details, such as creating, updating, and deleting user accounts. 
+
+
+

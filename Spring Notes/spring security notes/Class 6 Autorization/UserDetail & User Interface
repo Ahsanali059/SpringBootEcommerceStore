@@ -1,0 +1,48 @@
+Today Topics 
+        ->UserDetail (interface)
+        ->User       (interface)
+
+UserDetails interface:(this is just a blue print to store a user inside over application)
+            ->In spring Security 
+                   if you want to store users
+                   If you want to represent a user 
+                   if you want to blueprint user 
+            this is the interface we are depending 
+
+->UserDetails is a Interface 
+    Abstract Methods 
+         ->getAuthorities()
+         ->getPassword();
+         ->getUsername();
+         ->isAccountNotExpired();
+         ->isAccountNotLocked(); 
+
+->UserDetails Interface is a core part of authentication process 
+->It Represent a user details,such as username,password,authorities,and other attributes.
+->The "Primary Reason" for using the 'UserDeatails' interface is to provide a standardized way to encapsulate user information during authentication and authorization 
+
+
+Important info:
+     This is interface any implemented class is here??
+     to Check this press control + T 
+     There are One Class('User') and One Interface ('Mutable User') is 
+     implemented
+
+------------------------------------------------------------------------
+                   Standard Explination of User Class:
+
+->User(Class):This Class tells us how to store the users 
+->It is Implemented class of UserDetails Interface  
+->It's provided by spring security to simplify the creation of instances 
+that represent the user deatils during authentication
+->The User Class Includes essential properties such as username,password,authorities,and flages indicating whether the account is enabled,expired etc
+
+Here are the main components of the User class and why it is useful:
+Implements UserDetails:
+Simplified User Details Configuration:
+
+
+Create User using User Class 
+
+UserDeatils user1 = User.withusername("ahsan").password("123").roles("admin").build();  
+

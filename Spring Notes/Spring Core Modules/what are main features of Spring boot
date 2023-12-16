@@ -1,0 +1,19 @@
+what are main features of Spring boot 
+
+1)Embedded Server eliminates the need for complex application development.
+2)Starter dependencies that facilities building and configuring apps
+3)Automated Spring Configration
+4)Metrics,health check and other reports.
+5)Everthing in spring boot is preConfigured,we simply need to use the proper Configration to use a specific Funtionality,if we want to create a REST API,we can use spring boot 
+
+Advantages of spring boot 
+	Spring boot reduces development time,help avoid unneccessory configration and many other benifits,like 
+
+	->we can use it for creating standalone application
+	->There is no need to deploy WAR Files while using spring boot 
+	->It does not require XML Configration 
+	->Embedded Tomcate,jetty and Undertow directly 
+	->Offers production ready feature 
+	->Spring boot is easy to lounch
+	->Easier Customization and management 
+	   

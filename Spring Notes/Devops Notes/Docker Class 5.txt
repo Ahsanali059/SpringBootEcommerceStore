@@ -1,0 +1,131 @@
+Docker file components & diff Commands 
+
+step 1:create one container first and run using single commands               
+       #docker run -it --name contanierName ubuntu /bin/bash 
+step 2:inside container change directory 
+       #cd tmp 
+step 3:Now create one file inside tmp directory 
+       #touch myFile 
+	   
+Note:Now if you want to see the difference between the base image and chnage on it the 
+
+      #docker diff contanierName updateimage 
+
+is ka andar hum na jo khuch change kia wo bata dy ga ek file baniy hay sirf 
+
+       Output just like this ...
+       C /root                               ------------->C means Change 
+       A /root/.bash_history                 ------------->A append/addition 
+       C /temp 
+       D /temp/myFile                        ------------->D means  deletion 
+	   
+Step 4:Now, create image of this container 
+       #docker commit containerName image1 
+
+       type docker images 
+step 5:Now create container from this image 
+       #docker run -it --name myContanier image1 /bin/bash 
+
+       type ls 	 
+       type cd /tmp
+       
+ab is container ka andar sara data i jaoiy ga jo may na doshra container may banaya tha 
+image ka use kar ka 	 
+
+How to Create docker file ---------------------------->Very Important 
+
+      ->Docker file is basically a text file it contains some set of functions 
+	  ->Automation of docker image 
+	  ->It always prefer two use this for creation of image 
+	  ->Docker 'FILE' is mutable /change able but image is immutable 
+	  ->Docker File Instruction always be Capital Like 'FROM' ,'RUN', 
+	         'MAINTANIER'->Author/Owner/Description 			 
+              'COPY' etc
+			  
+			
+Docker Components 
+
+FROM : for base image.This command must be on top of docker file 
+RUN  : To excute command Commands it will create a layer image 
+       in simple words jo b docker file ka andar likha hay text ya file un sub ko run 
+       karana ka lia is ka use hota hay 
+MAINTANIER: Jo docker file bana raha hay us ka name ure description 
+
+COPY :Copy file from local system we need to provide source and destination 
+      (we cannot download image from internet and any remote repository)
+ADD :Similer to the copy,but it provide a features to download file from internet 
+     also we extract file at docker image side 
+	 and also extacted
+EXPOSE:To expose port such as port 8080 for tomcat,port for nginx etc 
+
+WORKDIR:To set working directory for a container 
+
+CMD :Execute commands but during container creation 
+
+ENTRYPOINT:Similer to 'CMD' has higher priority Over CMD First command will be executed 
+by ENTRYPOINT only 
+
+
+ENV :Environment variable 
+
+
+ARG:(Arguments) 
+
+The ARG (argument) command in a Dockerfile is used to declare variables that can be passed at build-time. These variables can be used within the Dockerfile to parameterize the image-building process. The primary purpose of ARG is to make your Dockerfile more flexible and configurable. Here's why you might use the ARG command in a Dockerfile:
+
+Parameterization: 
+You can use ARG to define values that might change from one build context to another. 
+For example, you can define an ARG variable for specifying the version of a software
+package to be installed in the image. This allows you to build the image with different 
+versions by passing a value during the build. 	
+
+Example:
+
+ARG APP_VERSION=latest
+RUN install_app_version "$APP_VERSION"
+
+For production 
+
+ARG BUILD_ENV=production
+ARG BUILD_ENV=production
+RUN if [ "$BUILD_ENV" = "development" ]; then install_dev_dependencies; fi
+
+
+//Practical 
+steps to create docker file 
+
+1-create a file named Dockerfile (mandatory to use D Capital)
+2-Add instruction in Dockerfile
+3-Build dockerFile to create image 
+4-Run image to create container 
+
+
+vi Dockerfile 
+
+     i am in instead dockerFile
+	 FROM ubuntu 
+	 
+RUN echo "My file data" > /tmp/testFile
+
+to create image out of docker file 
+
+docker build -t myImage  . (.means current directory)
+
+docker ps -a
+ 
+Now Create container from above image 
+ 
+docker run -it --name myContanier myImage /bin/bash
+ 
+cat /temp/testFile
+    
+Using Env Variable and ADD 
+
+Vi Dockerfile
+FROM ubuntu 
+WORKDIR /temp 
+RUN echo "My new file data" > /tmp/mynewFile1	
+ENV name ahsan
+COPY mynewFile1 /tmp 
+ADD test tar.gz /tmp 
+   

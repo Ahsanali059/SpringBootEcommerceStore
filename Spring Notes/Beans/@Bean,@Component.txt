@@ -1,0 +1,55 @@
+  How to create a Bean 
+
+->Using xml(bean.xml)
+
+	class College 
+	{
+
+	}
+
+
+
+    <bean id="CollegeBean" class="com.example.MyColleges.College">
+    
+
+    </bean>
+
+working:when we define this beans College Object is created and 
+register the perticular object in IOC Container/Application Context when we need to use this we simple use 
+           getBean("BeanId"); 
+		   
+Note:<bean id="CollegeBean" class="com.example.MyColleges.College">
+    
+
+    </bean>
+
+this same thing we can do this by using java annotation 
+
+@Component
+class College
+{
+
+}	
+
+while we are creating bean using java we dont provide id bydefault
+id is e.g ClassName is College Id is college
+          ClassName is Student Id is student 
+we can provide by manually 
+
+@Component("studentBean") 
+class Student
+{
+
+
+}
+
+beans.xml 
+
+<context:component-scan base-package = "" ></context:component-scan>		  
+
+
+@Value Annotation 
+this is used to inject the value like
+  
+  @Value("Ahsan ali") 
+  private String MyName;

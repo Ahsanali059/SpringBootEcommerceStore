@@ -1,0 +1,60 @@
+=> MultiActionController :-
+	-> This is the controller class which allows the multiple requests (URL) to be mapped within one class (controller)
+	-> It maps the request (URL) to the method names
+	-> It is depricated from the latest versions of spring
+	
+
+=> Command Classes :-
+	-> Command Classes are normal java bean class or POJO class which is used to store the form data which is submitted by the client
+	-> For each request spring will create a separate command object in which all the details/information is collected
+	-> For this spring has provided some "Command Controller Classes" :-
+		1. BaseCommandController
+		2. AbstractCommandController
+		3. AbstractFormController
+		4. SimpleFormController
+		5. AbstractWizardFormController
+		
+		
+=> BaseCommandController :-
+	-> It is the base class for all "Command Controller Classes"
+	-> It is used to :-
+		= create java bean objects
+		= validate the content of java beans using validator
+		= to transform the object into string or vice versa using custom editors (in the form of PropertyEditors)
+	-> It is depricated from the latest versions of spring
+	
+	
+=> AbstractCommandController :-
+	-> It is "Command Controller Class" which is used to :-
+		= create java bean objects
+		= validate the content of java beans using validator
+	-> Mostly it is not used to handle the form submission because form functionalities are offers by AbstractFormController in detailed way
+	-> It is depricated from the latest versions of spring
+	
+	
+=> AbstractFormController :-
+	-> It is the base class of SimpleFormController and AbstractWizardFormController
+	-> It is "Form Controller Class" that creates java bean objects for every form request. We can set sessionForm property as true or false if we want the same or new bean instance as per the request
+	-> It is depricated from the latest versions of spring
+	
+	
+=> SimpleFormController :-
+	-> It is "Form Controller Class" which is used to handle the form data
+	-> It provides formView, successView in case of valid form submission and provides validation errors is user enters any wrong data in the form
+	-> It is depricated from the latest versions of spring
+	
+	
+=> AbstractWizardFormController :-
+	-> A wizard is a step-by-step process that allows the users to input the information in a particular order and in which next steps may depends on the information provided in previous steps. Wizard involves multiple pages
+	-> To support wizard, spring has provided one class i.e. AbstractWizardFormController
+	-> It allows the users to carry the same command object through the entine flow of web-pages in wizard
+	-> There are some actions in case of wizard :-
+		= finish
+		= cancel
+		= page change
+	-> It is depricated from the latest versions of spring
+	
+	
+=> NOTE : In spring latest versions (Spring 3.x version) all these classes has been depricated and replaced by annotation-style controller
+
+================================================================================================

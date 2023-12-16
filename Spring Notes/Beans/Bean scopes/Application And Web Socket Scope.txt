@@ -1,0 +1,38 @@
+Application Scope:
+
+In Framework like servlet based application "application scope"
+refers to a scope in which an object is shared and available 
+throughout the entire application lifetime 
+
+1-Long Lifespan:
+->Objects with application scope are created when the web 
+application starts up and are kept alive until the application 
+is shut down 
+
+2-Shared Among Users
+->Since the object is created only once for the entire application, 
+it is shared among all users and all parts of the application
+
+->This can be useful for storing and sharing data that should be consistent 
+across all users, such as configuration settings, shared resources, 
+or cached data.
+
+3-ServletContext:
+->In Java-based web applications, the application scope is often implemented using the Servlet 
+Context object, which represents the entire web application.
+
+->Objects stored in the application scope can be accessed and modified by any part of the 
+application through the ServletContext.
+
+Summery:ApplicationScoped bean can be shared between multiple 
+Dispacher servlet
+agar mira pass ek spring application jay us may bahut sara 
+Dispacher Servlet hay har ek ka servlet Context hay agar 
+may ek bean banta ho ure us ko global banana chata ho 
+tu us ko may application scope bana do ga us ko phir sara 
+Dispacher servlet access kar sakhta hay 
+ 
+
+What is ApplicationContext and webApplicationContext?
+ApplicationCotext is use for normal IOC. 
+webApplicationContext is used for webApplication.  

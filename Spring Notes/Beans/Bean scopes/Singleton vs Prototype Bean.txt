@@ -1,0 +1,198 @@
+This is very IMPORTANT TOPIC for interview and projects
+
+There are 6 Type of Scopes
+      1-Singleton 
+      2-Prototype
+      3-Request 
+      4-session 
+      5-Application(added in spring 5.x version)
+      6-Websocket(added in spring 5.x version)
+     
+Note:7 is Global session scope but this is deprecated in spring 
+5.x version
+
+1-Singleton Scope 
+  ApplicationContext context=new AnnotationConfigApplicationContext(Singleton.class);
+		
+		
+		
+		Singleton obj1 = (Singleton)context.getBean("singleton");
+		Singleton obj2 = (Singleton)context.getBean("singleton");
+Note:when we ask the container give me object using getBean()
+method it give the same object again and again this is called 
+singleton scope 
+->This is default scope we dont need to change anything if want to 
+change manually we can use @scope annotation like 
+
+
+@Component()
+@Scope("singleton")
+public class Singleton 
+{
+	
+	
+	
+}
+---------------------->Lifecycle<------------------------- 
+The singleton bean is created when the application 
+context is created, and the same instance is reused 
+throughout the application's lifetime.
+---------------->Standard way to define Scope<--------------
+
+Instead of hard coding we can use ConfigurableBeanFactory class inside 
+of this constant scope already define e.g
+          public static final String SCOPE_SINFLETON = "singleton";
+
+we can use this in my class 
+
+@Component()
+@Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
+public class Singleton 
+{
+	
+	
+	
+}
+if you cannot write this okay it work well this is default scope
+
+-------------------->Prototype Scope<----------------------
+With Each Call,A Brand new Object is Getting Created and 
+returned   
+
+Practical 
+@Component
+@Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+public class prototypeDemo {
+
+} 	
+
+------------>Bean Instanitiating Prototype vs Singleton<------	  
+
+When ever the contanier started any class that have prototype 
+scope this class is not instantiated automatically singleton 
+instantiated automatically whenever we need the prototype scope 
+class spring only create the object at that time 
+student class scope is prototype
+
+when ever we autowired student class in school class know spring 
+contanier instantiated the student class Object 
+
+IMPORTANT POINTS:
+
+1-Singleton scope beans initailize when the container starts 
+2-Prototype scoped beans initailize when we ask for it using 
+getBean method 
+3-Prototype bean also gets initailize when it is used as a 
+dependency inside a singleton scoped bean 
+
+IMPORTANT CASE/INTERVIEW QUESTION:
+I have a Class school class scope is singleton and its depend on
+another class that student this class scope is prototype 
+agar may school class ki madad say getStudent karta ho ure fir 
+get student karta ho tu is ko mujha brand new Object dina chaiya 
+lakin ya same object retune karay ga q ka ya singleton ka andar 
+use ho raha hay 
+
+Note:When Prototype Bean injected inside a Singleton Bean 
+the scoped bean injection problem occure 
+
+Ans:Dependency Injection happens only one time at time of component scanning
+thats why this problem occure 
+
+Solution:
+Lets make this school class fool we use Proxy Object 
+we need to define aop proxy object in Prototype class 
+
+@Component
+@Scope(value="prototype",proxyMode = ScopeProxyMode.TARGET_CLASS) 
+public class student 
+{
+   
+   
+}
+
+------------->Understanding a Proxy Object<------------------
+when ever we write this "proxyMode = ScopeProxyMode.TARGET_CLASS "
+how it is call the proxy Object in beckend this is used CG LIB 
+CG STAND For "Code generation Library" this class give us the 
+Proxy Object 
+
+------------------------->@Lookup<-----------------------
+Another way to Create the proxy object 
+Inside of School Class May use kar ga lookUp Annotation ko 
+
+class school 
+{
+   @Autowired
+   public Student student;
+
+   @Lookup
+   public Student createStudentObject()
+   {
+      return null;
+   
+   }
+   public Student getStudent()
+   {
+      Student student = createStudentObject();
+	  return student;
+   }   
+	  
+
+}  
+
+Note:in CreateStudentObject im return null because CGLIB 
+override this method and implement occording to this 
+
+Behind the scene implementation
+/*
+   public Student createNewStudentObject()
+   {
+      return context.getBean(Student.class);
+   }
+
+*/
+
+what is difference between singleton scope and singleton desgin pattern
+
+1-Scope vs. Pattern:
+
+Singleton Scope in Spring: 
+           Refers to the scope of a bean in the context of a 
+		   dependency injection framework like Spring.
+Singleton Design Pattern: 
+           Refers to a design principle used to ensure a 
+		   class has only one instance.
+2-Global Access:
+
+Singleton Scope in Spring: 
+            Provides a single instance of a bean within the 
+			Spring container.
+Singleton Design Pattern: 
+            Provides a global point of access to the single 
+			instance of a class.
+3-Intent:
+
+Singleton Scope in Spring: 
+            Intended to manage the lifecycle and sharing of 
+			instances of beans in a Spring application.
+Singleton Design Pattern: 
+            Intended to control the instantiation of a class 
+			and provide global access to that instance.
+
+Note:All remaianing 4 Scopes are working only in web application
+Request
+Session
+web-socket 
+Application
+
+
+   
+
+ 
+  
+  
+ 
+ 
+
+		

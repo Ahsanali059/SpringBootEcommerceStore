@@ -1,0 +1,27 @@
+What is docker and how to install docker 
+
+Basic docker commands:
+
+->To see all images present in your local machine 
+        #docker images 
+->To find out images in docker hub 
+        #docker search jenkins
+->To download image from docker hub to local machine
+        #docker pull jenkins 
+->To give name to contanier 
+        #docker run -it --name Container1 ubantu /bin/bash 
+		
+		-it(Interactive terminal) 
+		run combination of two words 'Create' and 'Start' first create image and then run 
+		ubantu image name 
+		
+->To Check,Service is start or not 
+        #Service docker status
+->To start Container 
+        #docker start Contanier1
+->To go inside contanier 
+
+        #docker attach Container1
+->To see all Containers
+        #docker ps -a 
+		

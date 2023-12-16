@@ -1,0 +1,40 @@
+What is docker and how to install docker 
+
+Basic docker commands:
+
+->To see all images present in your local machine 
+        #docker images 
+->To find out images in docker hub 
+        #docker search jenkins
+->To download image from docker hub to local machine
+        #docker pull jenkins 
+->To give name to contanier 
+        #docker run -it --name Container1 ubantu /bin/bash 
+		
+		is command say har bar ek naya contanier banta hay jab hum stop karta container
+		stop ho jata jab ya command dobara use karta tu ya new container banata hay 
+		
+		-it(Interactive terminal) 
+		run combination of two words 'Create' and 'Start' first create image and then run 
+		ubantu image name 
+		
+->To Check,Service is start or not 
+        #Service docker status
+->To start Container 
+        #docker start Contanier1
+->To go inside contanier 
+
+        #docker attach Container1
+->To see all Containers
+        #docker ps -a 
+->To see only running contaniers(famous command)
+        #docker ps
+->To stop container 
+        #docker stop containerName
+->To delete container 
+        #docker rm containerName
+->To check which operating system we are using in container 
+        #cat /etc/os-release 
+		
+
+		

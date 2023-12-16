@@ -1,0 +1,41 @@
+what is Docker 
+
+Docker is an open-source Centeralised platform designed to
+create,deploy and run applications 
+
+->Docker uses container on the O.S and run application It
+allow application to use the same linux kernal as a system 
+on the host computer rather then creating whole saparate 
+virtual os
+
+->we can install docker on any os but docker engine runs 
+natively on linux destribution 
+
+->Docker written in 'Go' Language 
+
+->Docker is a tool that perform os level vertualization,also know as
+continarization 
+
+->Before Docker many users faces the problem that a perticular 
+code is running in the developer system but not in the User 
+system 
+
+Docker is a set of platform as a service that uses O.S Level
+Virtualization where Vmware uses Hardware  virtualization 
+There are three types of services in Cloud 
+      1-Infrastruucture as a service 
+	  2-Platform as a service(in this service generally we 
+	  deal with OS ) 
+	  3-Software as a service 
+   
+What is Docker Hub 
+
+Docker Hub is the world's largest.library and community 
+for container images. Browse over 100,000 container images 
+from software vendors, open-source projects, and the 
+community  
+
+->Contanier Communicate with Docker hub to fetching the 
+required 5% files other 95% fetch from Host operating system 
+
+Contanier ka andar 5% os hota hay lakin itni kum hoti hay ka na baraber 

@@ -1,0 +1,50 @@
+=> JCP :-
+	-> Full Form of JCP is "Java Community Process"
+	-> It is simply a process that allows interested parties (individual or organization) to develop standard technical specifications for java technology
+	-> It was established in 1998
+	-> It is membership community and anyone can join it from "www.jcp.org" website
+	
+	
+=> JSR :-
+	-> Full form of JSR is "Java Specification Request"
+	-> It is a formal, open standard document proposal that is made by the parties (individual or organization) to the JCP
+	-> It contains proposed changes, additions or improvements to the Java Technology Specifications
+	-> Spring MVC Framework supports JSR-303 or JSR-349 or JSR-380 specifications by default for validations
+	
+	
+=> Validations :-
+	-> Validations are the restrictions provided to the client while filling the form so that data entered by the client is valid
+	-> There are 2 types of validations :-
+		1. Client Side Validations
+			= technologies used for client side validations are JavaScipt, VB Script etc
+		2. Server Side Validations
+			= technologies used server side validations are JSP, Servlet, Spring, Webservices etc
+
+
+=> Spring MVC Validations :-
+	-> We can achieve Spring MVC Validations by 2 ways :-
+		1. Using pre-defined spring provided classes (Errors) [org.springframework.validations]
+		2. Java Bean Validations API (JSR-303 or JSR-349 or JSR-380)
+		
+		
+=> Java Bean Validations API :-
+	-> It contains "Java Bean Validations Annotations" and "Hibernate Validator Annotations" for validations in spring mvc framework
+	-> NOTE : Hibernate is the vendor which implements JSR
+	-> It is very famous API for validations
+	
+	-> Annotations used are :-
+		1. @NotNull
+		2. @Min
+		3. @Max
+		4. @Size
+		5. @Pattern
+		6. @Past
+		   etc
+		
+		7. @NotEmpty
+		8. @NotBlank
+		9. @Email
+		10. @Length
+		11. @Range
+			etc
+		

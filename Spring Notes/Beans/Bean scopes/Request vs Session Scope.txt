@@ -1,0 +1,104 @@
+what is difference between Request and Session Scopes
+
+The term "request" & "Session" typically refer to the lifetimes or 
+durations of objects or variables in the context of web 
+applications, especially in the context of web development. 
+These concepts are commonly used in the context of server-side 
+programming.
+
+1-Request Scope:
+      Definition: In web development, the request scope refers to the duration of a particular HTTP request and its processing.
+	  
+	  Lifetime: Objects or variables in the request scope are created 
+	  when a request is made to the server and exist only for the 
+	  duration of that request. Once the request is processed and 
+	  a response is sent back to the client, these objects are typically 
+	  discarded.
+	  
+	  Use case: Request scope is often used for storing information
+	  that is relevant to a specific request, such as form data
+	  submitted by the user or other temporary information 
+	  needed during the processing of that specific request.
+
+2-Session Scope:
+      Definition: The session scope, on the other hand, refers to a longer duration that spans multiple HTTP requests and responses.
+      
+      Lifetime: Objects or variables in the session scope persist 
+	  across multiple requests from the same user during their 
+	  session. The session typically starts when a user logs in 
+	  and ends when they log out or the session expires.
+	  
+	  Use case: Session scope is commonly used for storing 
+	  user-specific information that needs to be maintained 
+	  throughout their interaction with the web application, 
+	  such as user authentication details, preferences, and 
+	  other session-related data.
+
+In summary, the key difference lies in the duration of the scope:
+
+Request Scope: Short-lived, applicable to a single HTTP request and response cycle.
+Session Scope: Longer-lived, spans multiple HTTP request and response cycles within a user's session.
+
+
+Create Request Scope 
+For creating the Request Scope we are using WebApplicationContext.SCOPE_REQUEST annotation
+
+@Component
+@Scope(value = WebApplicationContext.SCOPE_REQUEST)
+public class MyRequestScopedBean {
+    // Your bean properties and methods go here
+}
+
+
+Create Session Scope 
+@Component
+@Scope(value = WebApplicationContext.SCOPE_SESSION)
+public class MySessionScopedBean {
+    // Your bean properties and methods go here
+}
+=> Session Management :-
+	-> It is the technique by which we can manage the user requests i.e. if the request is coming from the same user or different user
+	-> NOTE : HTTP is stateless protocol and thus server is not able to check wether the request is coming from same user or different user
+	-> For session management we have many techniques in spring MVC i.e. HttpSession, annotations, spring security etc
+	
+	
+=> HttpSession :-
+	-> HttpSession is an interface which is used for session management
+	-> Methods of HttpSession interface :-
+		= setAttribute(-,-)
+		= getAttribute(-)
+		= getAttributeNames()
+		= removeAttribute(-)
+	-> To create session, we have to use following method :-
+		= getSession() [it is present in HttpServletRequest interface]
+	-> To destroy the session, we have to use following method :-
+		= invalidate()
+
+Interview Question:
+What is difference between request and prototype scope ?
+
+Request Scope:Object with request scope are created once per 
+Http request and are bound to that specific request 
+->The object is available throght out the entire processing 
+of the request but will be discarded once the request is completed
+->This scope is commonly used for objects that should be unique 
+to each user request ensuring that each user interaction is 
+handled with a saparate instance of the object 
+
+prototype Scope:
+
+->Object with prototype is created every time the are requested 
+(every time the application code ask for a new instance)
+->Each time a new instance is requested a new object is created 
+and the instance and independent of each other 
+->This scope is suitable for objects that are stateful and should
+ not be shared between different parts of the application. 
+It allows for a new instance to be created for each request 
+or usage.
+
+In summary:
+
+Use "request" scope when you want an object to be tied to the lifespan of an HTTP request, ensuring that it's available throughout the processing of that specific request.
+Use "prototype" scope when you want a new instance of an object to be created each time it is requested, allowing for independence between instances.
+   
+	  

@@ -1,0 +1,35 @@
+Create Maven project using CMD 
+       Step 1:sudo apt install maven(download and install ubantu)
+   -----------------------------------------------------------------    
+
+       Note:when ever we create Maven project it create m2 folder 
+       ure wo Centeral repository say local path pir jar files ko la kar rakh dy ga
+            local path ----/m2/repository
+       wo is folder ka andar b rakh dita hay ure project ko b provide kar dita hay
+
+  -------------------------------------------------------------------
+       step 2:mvn archetype:generate
+  -------------------------------------------------------------------
+       (ya project ki jitna b predefined template hay wo sara mujha display karwa dy ga)
+       aprox 3324 availible template(Architecture type) 
+       maven.apacha.architype.webapp ka 2086 number hay it will change version to version 
+  -------------------------------------------------------------------
+       step 3:Select Archetype number
+         2086 (webapp) 
+       step 4: choose the version number : 5(version 1.0)
+       step 5:Provide project Details(Orginization Details) 
+              groupId(Domain in reverse Order) in.smartFinance
+              artifactId(ProjectName) firstMavenProject
+              version: 1.0
+              package: in.smartFinance.main
+         Note:last may ya pocha ga jo ap na project ki details provide ki hay wo Confirm hay and Y press jar do 
+
+
+      How to compile and run maven project:
+           step 1:choose the project location 
+           step 2:compile the project(mvn compile) 
+
+           Important Note:when project is successfully Compiled it create target folder(ya tab hi create ho ga jab program sai say Compile ho ga ho .class file ho bana dy ga)
+
+           step 3:Run the project
+                  mvn exec:java -Dexec.mainClass = "pk.smartFinance.main.App"  

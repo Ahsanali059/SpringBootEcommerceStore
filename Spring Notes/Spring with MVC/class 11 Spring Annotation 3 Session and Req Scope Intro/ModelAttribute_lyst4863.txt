@@ -1,0 +1,31 @@
+=> @ModelAttribute :-
+	-> It binds the method parameter or method return value to a named model-attribute and then can be used in the web view.
+	-> It can be used with method parameter or before method
+	-> For example :-
+		
+		public String register(@ModelAttribute("ma_student") Student std, Model model)
+		{
+			--------
+		}
+		
+		--------------------------------------------
+		
+		@ModelAttribute
+		public void modelData(Model model)
+		{
+			System.out.println("modelData() method executed");
+			
+			model.addAttribute("m_name", "deepak");
+			model.addAttribute("m_email", "deepak@gmail.com");
+		}
+		
+		--------------------------------------------
+		
+		@ModelAttribute("ma_name")
+		public String modelData()
+		{
+			System.out.println("modelData() method executed");
+			return "Deepak Panwar";
+		}
+		
+		--------------------------------------------
