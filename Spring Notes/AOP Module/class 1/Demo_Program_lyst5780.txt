@@ -1,0 +1,61 @@
+//target
+class BankingApp
+{
+	//target
+	public void login()
+	{
+		//join-points
+		----- business logic -----
+		//join-points
+	}
+
+	//target
+	public void transactionUsingUpi()
+	{
+		//join-points
+		security();	//pointcut
+		----- business logic for UPI -----
+		//join-points
+	}
+
+	//target
+	public void transactionUsingInternetBanking()
+	{
+		----- business logic for Internet Banking -----
+	}
+
+	//target
+	public void transactionUsingMobileBanking()
+	{
+		----- business logic for Mobile Banking -----
+	}
+
+	//target
+	public void transactionUsingWallet()
+	{
+		----- business logic for Wallet -----
+	}
+}
+
+class Services
+{
+	public void security()
+	{
+		----- security service logic -----
+	}
+
+	public void logging()
+	{
+		----- logging service logic -----
+	}
+
+	public void sendOtp()
+	{
+		----- send OTP service logic -----
+	}
+
+	public void sendSms()
+	{
+		----- send SMS service logic -----
+	}
+}
