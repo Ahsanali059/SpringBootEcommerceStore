@@ -1,0 +1,24 @@
+Single Responsible principle:
+
+Defination:
+Every Software component should have a single reason to change 
+
+           OR
+Every Software component should have a single Responsibility 
+
+Meaning:
+
+Hum na ek application baniy hay ure ek class bahiy hay ure us ka andar sub khuch rakh dia e.g
+removeReminder
+addReminder
+isValidReminderId
+saveReminder
+and more 
+
+This is the problem in sub ko ek class ka andar nahi rakhna we will discuss in next class we will follow single responsible principle
+
+
+Working with Single Responsible principle 
+Every Software/class(component) should have a single responsibility  
+
+Jis tarha hum na upper Reminder Class ka andar sari funtionality rekh di thi ab wo class sub khuch janti hay is lia single responsible principle say that A class dons't know everthing    

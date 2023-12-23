@@ -1,0 +1,44 @@
+What is Difference between Original Jar and Fat Jar 
+
+JAR file contains only your project's classes and resources, the “executable” JAR file contains your project's classes and resources along with all the dependencies required to run the application, and the “fat” or “uber” JAR file contains your project's classes and resources as well as all
+
+How to run application any machine without server 
+
+Use this plugins in pom.xml file
+
+<build>
+     <plugins>
+         <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugins</artifactId>
+         <plugin>
+         
+     </plugins>
+
+
+</build>
+
+
+Then run this command in terminal 
+java -jar jarNamejava -jar jarName 
+
+the only prerequsite is java installed in this machine 
+
+we can provide port no
+
+java -jar jarName --server.port=3000
+
+
+we can use custome application.properties file ?
+Yes we can use this if we are using custome properties we can use this annotation to load custome properties file 
+@PropertySource("abc.properties")
+
+main method ka uppar
+
+Important Note:Spring boot starter parent manage all the dependencies internally 
+--------------------------------------------------------------------------------
+How Spring boot helping us to life easy as a developer ?
+
+Jab hum spring-boot starter parent karta hay tu is ka sath tomcate ki b jar files ati hay 
+                      spring-boot-starter tomcate 
+ka andar 

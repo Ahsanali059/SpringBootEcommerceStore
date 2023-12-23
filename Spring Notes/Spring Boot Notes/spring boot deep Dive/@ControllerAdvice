@@ -1,0 +1,73 @@
+@ControllerAdvice used with 
+->Model Attribute
+->Exception Handling
+->Init Binder 
+
+@ControllerAdvice is an annotation in the spring framework that allows you to write global code that can be applied to a wide range of controllers.It is typically used to define 'exception handlers and model attributes for all or a specific set of controllers in spring mvc application 
+
+When we annotate a class with @ControllerAdvice it become the global controller advice.The method in this class can be used to handle exceptions thrown by controllers or to provide global attributes to be included in the model attribute of all controller 
+
+Here are Two common Uses of @ControllerAdvice ...
+
+1-Exception Handling:
+we can define methods annotated with @ExceptionHanler with in a @ControllerAdvice class to handle Exceptions throw by controllers.These methods can handle specific exceptions or catch general exception and provide a common way to handle erros acrosss your application 
+
+@ControllerAdvice
+public class GlobalExceptionHandler {
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ModelAndView handleUserNotFoundException(UserNotFoundException ex) {
+        ModelAndView modelAndView = new ModelAndView("userNotFound");
+        modelAndView.addObject("errorMessage", "User not found: " + ex.getMessage());
+        return modelAndView;
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ModelAndView handleException(Exception ex) {
+        ModelAndView modelAndView = new ModelAndView("error");
+        modelAndView.addObject("errorMessage", "An unexpected error occurred: " + ex.getMessage());
+        return modelAndView;
+    }
+}
+
+public class UserNotFoundException extends RuntimeException {
+
+    public UserNotFoundException(String message) {
+        super(message);
+    }
+}
+
+2-Global Model Attributes:
+we can use @ModelAttribute annotated methods to add attribute to the model of all controller.This is useful for providing common data that needs to be available across multiple controllers 
+
+@ControllerAdvice
+public class globalControllerAdvice
+{
+    @ModelAttribute("globalAttribute")
+	public String globalAttribute()
+	{
+	    return "This is a global attribute";
+	}
+
+}
+
+By using @ControllerAdvice, you can centralize the configuration and behavior that needs to be applied globally to your controllers, making your code more modular and easier to maintain.
+
+4-ResponseEntityExceptionHandler:
+If you're building a RESTful API, you can extend ResponseEntityExceptionHandler in your @ControllerAdvice class to handle exceptions and customize the response entity sent back to the client.
+
+@ControllerAdvice
+public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<Object> handleUserNotFoundException(UserNotFoundException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+        // Customize the ResponseEntity for UserNotFoundException
+        return new ResponseEntity<>(... , status);
+    }
+}
+
+So, while exception handling is a significant use case, @ControllerAdvice provides a centralized mechanism for addressing various concerns in a Spring MVC application.
+
+@InitBinder
+ is an annotation in the Spring Framework that is used to customize the data binding process in Spring MVC. In a Spring MVC controller, data binding is the process of populating the command or form object from the request parameters. The @InitBinder annotation allows you to define methods that will be invoked to customize the data binding for a specific controller or a set of controllers.
+

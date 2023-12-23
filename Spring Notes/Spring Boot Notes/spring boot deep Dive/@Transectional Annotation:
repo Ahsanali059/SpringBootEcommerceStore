@@ -1,0 +1,139 @@
+@Transectional Annotation:
+
+The Transectional Annotation in Spring is used to declare a transection boundary for a method or a class.Transections are used to ensure data integrity and consistency in a database by grouping a set of operation into a single,automic unit.If any Operation within the transection is fails,the entire transection is rolled back to its initail state.
+
+Here is the brief explanation of the '@Transectional'annotation.
+
+1-Method Level Transectional Behaviors:
+
+When Transection is applied at method level it signifies that the method should be executed with in the transection.If the method completes successfully,the transection is committed.if an exception occures,the transection is rolled back 
+
+@Service
+public class ProductService
+{
+	
+	@Autowired
+	private productRepository productRepo;
+
+    @Transectional
+	public void saveProduct(Product product)
+	{
+        productRepo.save(product);
+
+	}
+
+}          
+
+In this example, the saveProduct method will be executed within a transaction. If an exception occurs during the method execution, the transaction will be rolled back.
+
+2-Class Level Transectional Behavior:
+we can also apply '@Transectional' at the class level with means that all the methods with in the class will use the same transectional behavior 
+
+@Service
+@Transectional  
+public class productService
+{
+    @Autowired
+    private ProductRepository productRepository;
+
+    public void saveProduct(Product product) {
+        productRepository.save(product);
+    }
+	 
+}
+
+In this case, all methods in the ProductService class, including saveProduct, will operate within a transaction.
+
+3-Transectional annotation supports the 'propagation' attribute,which determines how the transection behavior should be propagated when the transectional method is called from another method.
+common propagation values includes 
+                   1-'REQUIRED'
+                   2-'REQUIRED_NEW'
+                   3 -'NESTED'
+@Transactional(propagation = Propagation.REQUIRED)
+public void saveProduct(Product product) {
+    // Implementation
+}
+
+4-Isolation, Timeout, and ReadOnly:
+
+The @Transactional annotation allows you to set attributes like isolation, timeout, and readOnly to control transactional behavior further.
+
+@Transactional(isolation = Isolation.READ_COMMITTED, timeout = 30, readOnly = true)
+public void readProductDetails(Long productId) 
+{
+    // ...
+}
+
+Some questions:
+
+
+In Spring, the @Transactional annotation supports the propagation attribute, which determines the behavior of a transaction in the context of an existing transaction. The propagation attribute specifies how the transactional behavior should be propagated when a method annotated with @Transactional is called from another method that is already associated with a transaction.
+
+Here's an explanation of the propagation attribute values:
+
+1-REQUIRED(Default)
+
+If there is no existing transaction, a new transaction will be created for the annotated method.
+If there is an existing transaction, the method will join the existing transaction.
+
+@Transactional(propagation = Propagation.REQUIRED)
+public void saveProduct(Product product) {
+    // ...
+}
+
+
+2-REQUIRES_NEW:
+A new transaction will always be created for the annotated method. If there is an existing transaction, it will be suspended until the method completes.
+
+@Transactional(propagation = Propagation.REQUIRES_NEW)
+public void saveProduct(Product product) {
+    // ...
+}
+
+NESTED:
+
+A new transaction will be created, nested within the scope of an existing transaction. If there is no existing transaction, it behaves like REQUIRED.
+
+@Transactional(propagation = Propagation.NESTED)
+public void saveProduct(Product product) {
+    // ...
+}
+
+4-SUPPORTS:
+If there is an existing transaction, the method will participate in the transaction. If there is no transaction, the method will be executed without a transaction.
+
+@Transactional(propagation = Propagation.SUPPORTS)
+public void readProductDetails(Long productId) {
+    // ...
+}
+
+5-NOT_SUPPORTED:
+The method will be executed without a transaction context. If there is an existing transaction, it will be suspended until the method completes.
+
+@Transactional(propagation = Propagation.NOT_SUPPORTED)
+public void readProductDetails(Long productId) {
+    // ...
+}
+
+6-MANDATORY:
+
+The method must be executed within an existing transaction. If there is no existing transaction, an exception will be thrown.
+
+@Transactional(propagation = Propagation.MANDATORY)
+public void updateProduct(Product product) {
+    // ...
+}
+
+
+7-NEVER:
+The method must be executed without an existing transaction. If there is an existing transaction, an exception will be thrown.
+
+@Transactional(propagation = Propagation.NEVER)
+public void createProduct(Product product) {
+    // ...
+}
+
+The propagation attribute allows you to define how transactions should behave in different scenarios. It's important to choose the appropriate propagation setting based on the requirements of your business logic and the interactions between methods with transactional behavior.
+
+Alert:
+Keep in mind that @Transactional should be used carefully, and it's crucial to understand the implications of transaction management. It is often used in conjunction with Spring's declarative transaction management, where the framework takes care of managing transactions without the need for explicit boilerplate code.

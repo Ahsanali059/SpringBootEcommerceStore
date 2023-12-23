@@ -1,0 +1,30 @@
+RUN Method Deep Dive:
+
+Run method responsiblities:
+
+->run method create a Banner of spring boot 
+->run method bootsrap over application 
+
+->Run method create the contanier(ApplicationContext) for me
+->This method return me ConfigurableApplicationContext thats why we can store this in over ConfigurableApplicationContext variable 
+ConfigurableApplicationContext applicationCotext = springApplication.run();
+
+Why it is returning ConfigurableApplicationContext ?
+
+ConfigurableApplicationContext is a generic Type means ConfigurableApplicationContext contanier implements applicationContextContanier and all other contaniers extends the ConfigurableApplicationContext contanier 
+
+->Know we are able to get beans from container 
+->SpringBootConfigration:
+This is marker annotation it internally having a Configration annotation 
+Keep this annotation over any configration file this is marker annotation which will let other developer know that this file holds bean defination 
+this annotation we use in main method 
+
+mainMethod / main starter file uses three annotations 
+@SpringBootConfigration
+@ComponentScan
+@EnableAutoConfigration 
+
+instead of using this one by one use "@SpringBootApplication" 
+
+->run method help to create some listners   
+

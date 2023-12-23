@@ -1,0 +1,35 @@
+Microservices Roadmap:
+
+1-Spring Cloud 
+
+
+	Microservices Fundamentals
+
+	Http Clients 
+	Service Discovery 
+	Gateway 
+	LoadBalancer 
+	Resilient Microservices 
+	(Handling faliures)
+	Logging and tracing 
+2-Design Patterns 
+  
+  DDD
+  Event driven 
+  CQRS 
+  SAGA
+
+  NOte:this is basics 
+
+3-Devops 
+  Jenkins 
+  Docker 
+  Kubernates 
+  AWS 
+  RABITMQ
+
+4-Tools/Tech 
+  YAML 
+  Swagger /OPEN API
+  kIBANA 
+  Splunk  

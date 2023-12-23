@@ -1,6 +1,6 @@
 Today Topics 
         ->UserDetail (interface)
-        ->User       (interface)
+        ->User       (Class)
 
 UserDetails interface:(this is just a blue print to store a user inside over application)
             ->In spring Security 
@@ -28,8 +28,7 @@ Important info:
      There are One Class('User') and One Interface ('Mutable User') is 
      implemented
 
-------------------------------------------------------------------------
-                   Standard Explination of User Class:
+--------------------------------------------------------------------Standard Explination of User Class:-----------
 
 ->User(Class):This Class tells us how to store the users 
 ->It is Implemented class of UserDetails Interface  

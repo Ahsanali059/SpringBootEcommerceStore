@@ -28,5 +28,36 @@ There are Two Interface
            ->Autoritization()------> if i want to access to authotize 
            ->Principles-----------> if i want to print username
 
+Principle:
+
+Defination:A principle in the Context of spring security represents the currently authenticated user.it is an abstraction that encapsulates the users identity with in the system 
+
+Role:The principle Typically Includes information about user,such as username and or user_id and any additional details related to the authentication process.
+
+Usage:Throughout the application you can use the 'Principle' obtain information about the authenticated user,make decisions based on the user's identity,and perform user-specific operation 
+
+// Obtaining Principal in a Controller method
+@GetMapping("/secured/resource")
+public String securedResource(Principal principal) {
+    String username = principal.getName(); // Gets the username of the authenticated user
+    // Perform actions based on the user's identity
+    return "Access granted for user: " + username;
+}
+
+2-Authorities:
+Defination:
+In the context of spring security,"Authorities" represent the roles or permission associated with the authenicated user.Authorities define what actions or operation a user is allowed to perform within the application 
+
+Role:Authorities are often mapped to specific roles (e.g., ROLE_USER, ROLE_ADMIN) or permissions (e.g., READ, WRITE) based on the application's security requirements.
+
+Usage: Authorities are used during the authorization process to determine whether a user has the necessary permissions to access a particular resource or perform a specific action.
+
+@PreAuthorize("hasAuthority("ROLE_ADMIN")")
+@PostMapping("/secured/admin")
+public String adminResource()
+{
+    return "admin resource";
+}         
 
 
+Summery:In summary, the Principal represents the authenticated user's identity, and Authorities define the roles or permissions associated with that user. These concepts are integral to Spring Security's authentication and authorization mechanisms, providing a structured way to manage and enforce security policies within an application.

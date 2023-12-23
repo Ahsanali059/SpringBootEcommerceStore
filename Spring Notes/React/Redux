@@ -1,0 +1,56 @@
+Value store may Bahjna ka lia useDispatch() 
+Value store say Select karna ka lia useSelector()
+ure select karta time state ka access hona b zarori hay is lia 
+const todos = useSelector(state=>state.todos)
+
+
+ step 1: Create store 
+
+ import {configureStore} from '@reduxjs/toolkit'
+
+ import todoReducers from '../reducers/todoReducers'
+
+ export const store = configureStore({
+    reducers:todoReducers
+
+ })
+
+ step 2:Create slicers 
+
+ import {createSlice,nanoId} from '@reduxjs/toolkit'
+
+ const initailizeState = {
+    todos:[{id:1,text:'My First Todos'}]
+ } 
+  
+ 
+ export const todoSlice = createSlice({
+      name:'todo',
+      initailizeState,
+      reducers:{
+         addTodo:(state,action)=>{
+             const todo={
+                id:nanoId();
+                text:action.payload
+            }
+
+            state.todos.push(todo)
+          },
+
+          removeTodo:(state,action)=>{
+               state.todo = state.todo.filter(todo=>{
+               todo.id !==action.payload 
+         })
+            }  
+        }
+ 
+ })
+
+export const{addTodo,removeTodo} = todoSlice.actions
+export default todoSlice.reducer;
+
+
+
+ 
+ 
+

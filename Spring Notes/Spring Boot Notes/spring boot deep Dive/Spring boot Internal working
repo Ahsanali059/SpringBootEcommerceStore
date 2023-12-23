@@ -1,0 +1,22 @@
+Important Note:Spring boot starter parent manage all the dependencies internally 
+--------------------------------------------------------------------------------
+How Spring boot helping us to life easy as a developer ?
+
+->Jab hum spring-boot starter parent karta hay tu is ka sath tomcate ki b jar files ati hay 
+                      spring-boot-starter tomcate 
+ka andar 
+
+->There is one jar file
+---->spring-boot-autoconfigure 
+this will perform autoconfiration task to develop thing easy and fast 
+->Like web server automatically configure for us.
+->Dispacher servlet automatically configure for us. 
+
+What is Jackson jar and why we need this 
+
+when we want to send the response Json formate we use Jakson but we need two kar for this purpose 
+                1-Jakson-core
+                2-Jakson-databind 
+
+                and Last step use @EnableWebMvc Annotation in spring config file
+But in spring boot we dont need to do this all this thing spring boot do automaitically spring boot say if you developing anythiing in  spring boot you will need a jakson jar 
